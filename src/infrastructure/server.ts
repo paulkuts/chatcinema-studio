@@ -12,7 +12,9 @@ await mkdir(root,{recursive:true});
 const temp=resolve('.tmp');
 await mkdir(temp,{recursive:true});
 process.env.TEMP=temp; process.env.TMP=temp;
-const vite=await createViteServer({server:{middlewareMode:true},appType:'spa'});
+const port=Number(process.env.CHATCINEMA_PORT ?? 4173);
+const hmrPort=Number(process.env.CHATCINEMA_HMR_PORT ?? 24678);
+const vite=await createViteServer({server:{middlewareMode:true,ws:{port:hmrPort}},appType:'spa'});
 const server=createServer(async(req,res)=>{
   if(!req.url?.startsWith('/api/')) return vite.middlewares(req,res,()=>{res.statusCode=404;res.end()});
   const json=(status:number,body:unknown)=>{res.writeHead(status,{'Content-Type':'application/json'});res.end(JSON.stringify(body))};
@@ -38,4 +40,4 @@ const server=createServer(async(req,res)=>{
     json(404,{error:'Не найдено'});
   } catch(error){json(500,{error:error instanceof Error?error.message:String(error)})}
 });
-server.listen(4173,'127.0.0.1',()=>console.log('ChatCinema Studio: http://127.0.0.1:4173'));
+server.listen(port,'127.0.0.1',()=>console.log(`ChatCinema Studio: http://127.0.0.1:${port}`));
