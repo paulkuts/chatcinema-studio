@@ -1,6 +1,6 @@
 {
   "name": "chatcinema-studio", "version": "0.1.0", "private": true, "type": "module",
   "scripts": {"dev": "tsx src/infrastructure/server.ts", "typecheck": "tsc --noEmit", "test": "vitest run", "build": "vite build"},
-  "dependencies": {"@remotion/bundler": "4.0.539", "@remotion/player": "4.0.539", "@remotion/renderer": "4.0.539", "react": "19.3.1", "react-dom": "19.3.1", "remotion": "4.0.539", "zod": "4.5.4"},
+  "dependencies": {"@remotion/bundler": "4.0.540", "@remotion/player": "4.0.540", "@remotion/renderer": "4.0.540", "react": "19.3.1", "react-dom": "19.3.1", "remotion": "4.0.540", "zod": "4.6.7"},
   "devDependencies": {"@types/node": "26.6.6", "@types/react": "19.3.0", "@types/react-dom": "19.3.0", "tsx": "4.23.15", "typescript": "7.0.2", "vite": "8.3.5", "vitest": "5.0.5"}
 }

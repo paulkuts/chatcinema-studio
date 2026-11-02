@@ -4,9 +4,9 @@
 
 | Пакеты | Версия | Лицензия по метаданным |
 | --- | --- | --- |
-| `@remotion/bundler`, `@remotion/player`, `@remotion/renderer`, `remotion` | 4.0.539 | Remotion License, см. LICENSE.md пакетов |
+| `@remotion/bundler`, `@remotion/player`, `@remotion/renderer`, `remotion` | 4.0.540 | Remotion License, см. LICENSE.md пакетов |
 | `react`, `react-dom` | 19.3.1 | MIT |
-| `zod` | 4.5.4 | MIT |
+| `zod` | 4.6.7 | MIT |
 | `@types/node` | 26.6.6 | MIT |
 | `@types/react`, `@types/react-dom` | 19.3.0 | MIT |
 | `tsx` | 4.23.15 | MIT |
@@ -20,4 +20,4 @@ Remotion распространяется на собственных услов
 
 ## npm audit
 
-При чистой установке 2 ноября 2026 npm сообщил о 8 high-уязвимостях в дереве. Основное уведомление — [GHSA-mrhx-c7xc-m3w5](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5) для Zod `<4.6.6`; затронуты также пакеты Remotion через зависимости. Автоматическое исправление не применялось: оно меняет зафиксированное дерево и требует отдельной проверки совместимости всех пакетов Remotion и повторного рендера. Приложение слушает только localhost, но неподтверждённые проекты и данные не следует считать безопасными. Запустите `npm audit` повторно перед использованием или распространением: сведения могут измениться.
+На этапе P10 npm сообщал о 8 high-уязвимостях, связанных с [GHSA-mrhx-c7xc-m3w5](https://github.com/advisories/GHSA-mrhx-c7xc-m3w5) в Zod `<4.6.6`. В P10.1 все прямые пакеты Remotion согласованно обновлены до 4.0.540, а Zod — до 4.6.7, которую требуют и соответствующие пакеты Remotion. `npm ls zod` и lock-файл показывают единственную версию 4.6.7, без overrides. `npm audit` 2 ноября 2026 сообщил 0 уязвимостей; база меняется, поэтому проверку следует повторять.
