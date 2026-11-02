@@ -14,7 +14,7 @@ function addMessage(project: ReturnType<typeof createProject>, id: string, extra
 describe('project domain and application commands', () => {
   it('creates a schema-valid project with defaults and UUID', () => {
     const project = createProject('Film');
-    expect(project.schemaVersion).toBe(1);
+    expect(project.schemaVersion).toBe(2);
     expect(project.id).toMatch(/^[0-9a-f-]{36}$/i);
     expect(project.render).toEqual({ fps: 30, width: 1080, height: 1920 });
   });

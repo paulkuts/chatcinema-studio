@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import { mkdir, open, readFile, readdir, rename, unlink } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
-import { ProjectSchema, type Project } from '../domain/project.js';
+import { ProjectSchema, migrateProject, type Project } from '../domain/project.js';
 
 const ID_PATTERN = /^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/;
 const RESERVED_WINDOWS_NAME = /^(con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\..*)?$/i;
@@ -19,7 +19,7 @@ function assertProjectId(id: string): void {
 }
 
 function parseProject(text: string): Project {
-  return ProjectSchema.parse(JSON.parse(text) as unknown);
+  return migrateProject(JSON.parse(text) as unknown);
 }
 
 export async function saveProject(root: string, project: Project): Promise<void> {

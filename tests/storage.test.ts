@@ -27,7 +27,7 @@ describe('project storage', () => {
       characters: [{ id: 'hero', name: 'Mira', color: '#123456' }],
       messages: [{
         id: 'message-1', characterId: 'hero', text: 'Keep this wording', storyTime: '08:15', storyDay: 'Friday',
-        emotion: 'calm', linkedToPrevious: false,
+        emotion: 'calm', linkedToPrevious: false, locked: false,
       }],
     };
 
